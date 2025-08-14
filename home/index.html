@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialidad de Programación - Liceo Comercial Vate Vicente Huidobro</title>
+    <meta name="description" content="Aprende programación y desarrollo web. Formamos desarrolladores del futuro con tecnologías modernas y oportunidades laborales excepcionales.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Toggle del sidebar -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <span class="hamburger"></span>
+    </button>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <h2 class="sidebar-title">Cursos y Grupos</h2>
+            
+            <div class="course-item">
+                <button class="course-button" onclick="toggleGroups('course4E')">4° Medio E</button>
+                <div class="groups-container" id="course4E">
+                    <div class="group-item" onclick="navigateToGroup('4E-Grupo1')">
+                        <span class="group-name">Grupo 1</span>
+                        <span class="leaders">Mariangel Pirona<br>Benjamin Santander</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('4E-Grupo2')">
+                        <span class="group-name">Grupo 2</span>
+                        <span class="leaders">Abigail Caniucura<br>Alonso Zuñiga</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('4E-Grupo3')">
+                        <span class="group-name">Grupo 3</span>
+                        <span class="leaders">Yetzibel Gonzalez<br>Marcell Figueroa</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <button class="course-button" onclick="toggleGroups('course4C')">4° Medio C</button>
+                <div class="groups-container" id="course4C">
+                    <div class="group-item" onclick="navigateToGroup('4C-Grupo1')">
+                        <span class="group-name">Grupo 1</span>
+                        <span class="leaders">Neithan Velis<br>Ariel Gonzalez</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('4C-Grupo2')">
+                        <span class="group-name">Grupo 2</span>
+                        <span class="leaders">Maximiliano Reyes<br>Martin Rodriguez</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('4C-Grupo3')">
+                        <span class="group-name">Grupo 3</span>
+                        <span class="leaders">Vicente Rojas<br>Damian Oyarce</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('4C-Grupo4')">
+                        <span class="group-name">Grupo 4</span>
+                        <span class="leaders">Max Diaz<br>Vector Cedeño</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('4C-Grupo5')">
+                        <span class="group-name">Grupo 5</span>
+                        <span class="leaders">Ricardo Prieto<br>Lan Rojas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <button class="course-button" onclick="toggleGroups('course3C')">3° Medio C</button>
+                <div class="groups-container" id="course3C">
+                    <div class="group-item" onclick="navigateToGroup('3C-Grupo1')">
+                        <span class="group-name">Grupo 1</span>
+                        <span class="leaders">Yoycer Garcia<br>Martin Acevedo</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('3C-Grupo2')">
+                        <span class="group-name">Grupo 2</span>
+                        <span class="leaders">Elizabeth Cornejo<br>Benjamin Delgado</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('3C-Grupo3')">
+                        <span class="group-name">Grupo 3</span>
+                        <span class="leaders">Ariel Anabalon<br>Juan Prevals</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('3C-Grupo4')">
+                        <span class="group-name">Grupo 4</span>
+                        <span class="leaders">Krishna Lopez<br>Yulieth Gonzalez</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('3C-Grupo5')">
+                        <span class="group-name">Grupo 5</span>
+                        <span class="leaders">Jheimy Tolentino<br>Jonathan Alquinta</span>
+                    </div>
+                    <div class="group-item" onclick="navigateToGroup('3C-Grupo6')">
+                        <span class="group-name">Grupo 6</span>
+                        <span class="leaders">Marcelo Rios<br>Elisa Soto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="school-name">Liceo Comercial Vate Vicente Huidobro</div>
+                <h1>Especialidad de Programación</h1>
+                <div class="typing-text" id="typingText">
+                    <span id="typedText"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#projects" class="cta-button">Explora nuestros proyectos</a>
+                    <a href="#benefits" class="cta-button secondary">¿Por qué programar?</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Presentación de la Especialidad -->
+        <section class="presentation-section">
+            <div class="content-grid">
+                <div class="text-content fade-in">
+                    <h2>Creamos el Futuro</h2>
+                    <p>Formamos estudiantes capaces de <span class="highlight-text">diseñar, desarrollar y mantener software</span>, combinando creatividad y lógica para resolver problemas reales.</p>
+                    <p>Aquí no solo aprendes a programar... <span class="highlight-text">aprendes a pensar como un creador</span>.</p>
+                    <p>Nuestra metodología combina teoría sólida con práctica intensiva, preparándote para los desafíos del mundo tecnológico actual.</p>
+                    
+                    <div class="tech-icons">
+                        <div class="tech-icon">HTML</div>
+                        <div class="tech-icon">CSS</div>
+                        <div class="tech-icon">JS</div>
+                        <div class="tech-icon">Python</div>
+                        <div class="tech-icon">SQL</div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="#curriculum" class="cta-button">Conoce nuestro plan de estudios</a>
+                    </div>
+                </div>
+                
+                <div class="slide-in-right">
+                    <div class="result-visual">
+                        <h3 style="color: #f1f5f9; margin-bottom: 20px;">💻 Estudiantes programando</h3>
+                        <p style="color: #94a3b8;">Laboratorios equipados con tecnología de vanguardia donde nuestros estudiantes desarrollan proyectos reales que impactan su comunidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ¿Qué es Programar? -->
+        <section class="what-is-coding-section">
+            <h2 class="section-title fade-in">¿Qué es Programar?</h2>
+            <div class="coding-visual">
+                <div class="code-example slide-in-left">
+                    <div class="code-line"><span class="keyword">function</span> <span class="function">saludar</span>(<span class="string">nombre</span>) {</div>
+                    <div class="code-line">  <span class="keyword">return</span> <span class="string">"¡Hola, "</span> + nombre + <span class="string">"!"</span>;</div>
+                    <div class="code-line">}</div>
+                    <div class="code-line"></div>
+                    <div class="code-line"><span class="comment">// Llamamos la función</span></div>
+                    <div class="code-line"><span class="function">saludar</span>(<span class="string">"Estudiante"</span>);</div>
+                </div>
+                
+                <div class="result-visual slide-in-right">
+                    <h3 style="color: #f1f5f9; margin-bottom: 20px;">✨ Resultado</h3>
+                    <div style="background: linear-gradient(135deg, #22d3ee, #3b82f6); padding: 20px; border-radius: 8px; color: white; font-size: 1.2rem; font-weight: 600;">
+                        ¡Hola, Estudiante!
+                    </div>
+                    <p style="margin-top: 20px; color: #94a3b8;">Programar es dar instrucciones paso a paso para que la computadora realice tareas específicas. <span class="highlight-text">¡Es como enseñarle a pensar!</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="testimonials-section">
+            <h2 class="section-title fade-in">Historias Reales de Nuestros Estudiantes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">"No sabía nada de computación, hoy puedo crear páginas web desde cero. La programación cambió mi forma de ver los problemas."</div>
+                    <div class="testimonial-author">- Camila, 4° Medio</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">"Aprendí a pensar de forma lógica... y eso me sirve en todo. Además, ya tengo ofertas de trabajo para cuando termine."</div>
+                    <div class="testimonial-author">- Ignacio, Egresado</div>
+                </div>
+                
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-quote">"Al principio pensé que era muy difícil, pero los profesores nos apoyan mucho. Ahora estoy desarrollando mi propia app."</div>
+                    <div class="testimonial-author">- Valentina, 3° Medio</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lo que Aprenderás -->
+        <section class="benefits-section" id="benefits">
+            <h2 class="section-title fade-in">Lo que Aprenderás</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">💻</div>
+                    <div class="benefit-title">Lenguajes de Programación</div>
+                    <div class="benefit-description">Dominarás HTML, CSS, JavaScript, Python y SQL. Desde las bases hasta técnicas avanzadas.</div>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🧠</div>
+                    <div class="benefit-title">Pensamiento Lógico</div>
+                    <div class="benefit-description">Desarrollarás habilidades de resolución de problemas que aplicarás en cualquier área de tu vida.</div>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🚀</div>
+                    <div class="benefit-title">Proyectos Reales</div>
+                    <div class="benefit-description">Crearás aplicaciones web, sitios dinámicos y sistemas que resuelven problemas del mundo real.</div>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🤝</div>
+                    <div class="benefit-title">Trabajo en Equipo</div>
+                    <div class="benefit-description">Aprenderás metodologías ágiles y colaboración, fundamentales en el mundo tecnológico.</div>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-title">Adaptabilidad</div>
+                    <div class="benefit-description">Te mantendrás actualizado con las últimas tendencias y tecnologías emergentes.</div>
+                </div>
+                
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">⏰</div>
+                    <div class="benefit-title">Gestión del Tiempo</div>
+                    <div class="benefit-description">Desarrollarás habilidades de planificación y organización para manejar proyectos complejos.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campo Laboral y Salarios -->
+        <section class="salary-section">
+            <h2 class="section-title fade-in">Campo Laboral y Proyección Salarial</h2>
+            <div style="text-align: center; margin-bottom: 60px;">
+                <p style="font-size: 1.2rem; color: #94a3b8; max-width: 800px; margin: 0 auto; line-height: 1.7;">
+                    El sector tecnológico ofrece <span class="highlight-text">múltiples oportunidades</span> con salarios competitivos y crecimiento acelerado.
+                </p>
+            </div>
+            
+            <div class="salary-comparison">
+                <div class="salary-bar fade-in">
+                    <div class="salary-label">Desarrollador Junior</div>
+                    <div class="salary-visual">
+                        <div class="salary-fill" style="width: 40%;" data-width="40%"></div>
+                    </div>
+                    <div class="salary-amount">$800K - $1.2M</div>
+                </div>
+                
+                <div class="salary-bar fade-in">
+                    <div class="salary-label">Desarrollador Semi-Senior</div>
+                    <div class="salary-visual">
+                        <div class="salary-fill" style="width: 70%;" data-width="70%"></div>
+                    </div>
+                    <div class="salary-amount">$1.3M - $1.8M</div>
+                </div>
+                
+                <div class="salary-bar fade-in">
+                    <div class="salary-label">Desarrollador Senior</div>
+                    <div class="salary-visual">
+                        <div class="salary-fill" style="width: 100%;" data-width="100%"></div>
+                    </div>
+                    <div class="salary-amount">$1.8M - $2.5M+</div>
+                </div>
+                
+                <div class="salary-bar fade-in">
+                    <div class="salary-label">Otras profesiones</div>
+                    <div class="salary-visual">
+                        <div class="salary-fill" style="width: 25%; background: linear-gradient(90deg, #64748b, #94a3b8);" data-width="25%"></div>
+                    </div>
+                    <div class="salary-amount">$500K - $800K</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="color: #94a3b8; font-size: 1rem; max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                    <span class="highlight-text">Áreas de trabajo:</span> Desarrollo web y apps, Ciberseguridad, Análisis de datos, Inteligencia Artificial, Consultoría tecnológica, Emprendimiento digital.
+                </p>
+            </div>
+        </section>
+
+        <!-- Innovación y Tendencias -->
+        <section class="innovation-section">
+            <h2 class="section-title fade-in">Innovación y Tendencias del Futuro</h2>
+            <div class="innovation-slider">
+                <div class="slider-container" id="innovationSlider">
+                    <div class="innovation-card">
+                        <div class="innovation-icon">🤖</div>
+                        <div class="innovation-title">Inteligencia Artificial</div>
+                        <div class="innovation-description">Machine Learning, chatbots inteligentes y automatización que transforman industrias completas.</div>
+                    </div>
+                    
+                    <div class="innovation-card">
+                        <div class="innovation-icon">🥽</div>
+                        <div class="innovation-title">Realidad Aumentada</div>
+                        <div class="innovation-description">Experiencias inmersivas que mezclan el mundo real con elementos digitales interactivos.</div>
+                    </div>
+                    
+                    <div class="innovation-card">
+                        <div class="innovation-icon">🌐</div>
+                        <div class="innovation-title">Internet de las Cosas</div>
+                        <div class="innovation-description">Conectividad inteligente entre dispositivos para crear ecosistemas tecnológicos avanzados.</div>
+                    </div>
+                    
+                    <div class="innovation-card">
+                        <div class="innovation-icon">🔗</div>
+                        <div class="innovation-title">Blockchain</div>
+                        <div class="innovation-description">Tecnología descentralizada que revoluciona las transacciones y la seguridad digital.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inclusión - Mujeres en STEM -->
+        <section class="inclusion-section">
+            <div class="inclusion-content fade-in">
+                <h2 class="section-title">💜 La Tecnología También es para Ti</h2>
+                <div class="inclusion-message">
+                    "La tecnología necesita más voces femeninas. La programación también es para ti. 
+                    <span class="highlight-text">Tu perspectiva única puede crear soluciones que cambien el mundo.</span>"
+                </div>
+                
+                <p style="color: #94a3b8; font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px;">
+                    Únete a miles de mujeres que están liderando la revolución tecnológica. Aquí encontrarás el apoyo y las herramientas para desarrollar todo tu potencial.
+                </p>
+                
+                <div class="scholarship-links">
+                    <a href="https://talentodigitalparachile.cl/" class="scholarship-btn">Talento Digital</a>
+                    <a href="https://www.laboratoria.la/" class="scholarship-btn">Laboratoria</a>
+                    <a href="https://womenwhocode.com/" class="scholarship-btn">Women Who Code</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feria TP y Proyectos -->
+        <section class="projects-section" id="projects">
+            <h2 class="section-title fade-in">Feria TP - Nuestros Proyectos</h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" onclick="filterProjects('all')">Todos</button>
+                <button class="filter-btn" onclick="filterProjects('web')">Web</button>
+                <button class="filter-btn" onclick="filterProjects('apps')">Apps</button>
+                <button class="filter-btn" onclick="filterProjects('games')">Juegos</button>
+                <button class="filter-btn" onclick="filterProjects('iot')">IoT</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card fade-in" data-category="web">
+                    <div class="project-image">Portal Estudiantil Interactivo</div>
+                    <div class="project-content">
+                        <div class="project-category">Desarrollo Web</div>
+                        <div class="project-title">Sistema de Gestión Escolar</div>
+                        <div class="project-description">Plataforma web completa para gestionar calificaciones, asistencia y comunicación entre estudiantes, profesores y apoderados.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in" data-category="apps">
+                    <div class="project-image">App Móvil EcoVida</div>
+                    <div class="project-content">
+                        <div class="project-category">Aplicación Móvil</div>
+                        <div class="project-title">EcoVida - Sustentabilidad</div>
+                        <div class="project-description">App que gamifica hábitos ecológicos, permitiendo a usuarios registrar y competir por acciones sustentables diarias.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in" data-category="games">
+                    <div class="project-image">Juego Educativo CodeMaster</div>
+                    <div class="project-content">
+                        <div class="project-category">Videojuego</div>
+                        <div class="project-title">CodeMaster Adventures</div>
+                        <div class="project-description">Juego educativo que enseña lógica de programación a través de desafíos interactivos y aventuras divertidas.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in" data-category="iot">
+                    <div class="project-image">Sistema IoT SmartGarden</div>
+                    <div class="project-content">
+                        <div class="project-category">Internet of Things</div>
+                        <div class="project-title">SmartGarden Automatizado</div>
+                        <div class="project-description">Sistema inteligente de riego que utiliza sensores para monitorear y mantener plantas automáticamente.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in" data-category="web">
+                    <div class="project-image">E-commerce Local</div>
+                    <div class="project-content">
+                        <div class="project-category">Desarrollo Web</div>
+                        <div class="project-title">Marketplace Comunitario</div>
+                        <div class="project-description">Plataforma de comercio electrónico para emprendedores locales con sistema de pagos y gestión de inventario.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in" data-category="apps">
+                    <div class="project-image">App MentalHealth</div>
+                    <div class="project-content">
+                        <div class="project-category">Aplicación Móvil</div>
+                        <div class="project-title">MindWell - Bienestar Mental</div>
+                        <div class="project-description">Aplicación de apoyo emocional con ejercicios de mindfulness, seguimiento de estado de ánimo y recursos de ayuda.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actividad Interactiva -->
+        <section class="interactive-section">
+            <h2 class="section-title fade-in">🎮 Prueba Tu Lógica de Programación</h2>
+            <div class="game-container">
+                <p style="color: #94a3b8; margin-bottom: 20px;">
+                    <strong>Desafío:</strong> Enciende todas las luces haciendo clic en ellas. ¡Pero cuidado! Cada clic también afecta las luces adyacentes.
+                </p>
+                
+                <div class="logic-game" id="logicGame">
+                    <div class="game-cell" data-index="0"></div>
+                    <div class="game-cell" data-index="1"></div>
+                    <div class="game-cell" data-index="2"></div>
+                    <div class="game-cell" data-index="3"></div>
+                    <div class="game-cell" data-index="4"></div>
+                    <div class="game-cell" data-index="5"></div>
+                    <div class="game-cell" data-index="6"></div>
+                    <div class="game-cell" data-index="7"></div>
+                    <div class="game-cell" data-index="8"></div>
+                </div>
+                
+                <button onclick="resetGame()" style="margin-top: 20px; padding: 10px 30px; background: linear-gradient(135deg, #3b82f6, #1e40af); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                    Reiniciar Juego
+                </button>
+                
+                <div id="gameStatus" style="margin-top: 20px; font-weight: 600;"></div>
+            </div>
+        </section>
+
+        <!-- Cierre Inspirador -->
+        <section class="closing-section">
+            <div class="closing-quote fade-in">
+                La programación no es solo aprender a <span class="quote-highlight">hablar con las máquinas</span>... 
+                es aprender a <span class="quote-highlight">cambiar el mundo</span>.
+            </div>
+            <a href="https://www.google.com/aclk?sa=l&ai=DChsSEwidvOTUr4qPAxXzC-8CHdqNEx0YACICCAEQABoCZHo&co=1&ase=2&gclid=CjwKCAjwkvbEBhApEiwAKUz6-yDkd4uYvvZdjaz6RRGLbQc4YVc4n7daz0M0qJhFJD--owFip7abahoCMVEQAvD_BwE&ei=9d-daMSeGv2B5OUP-PaEiQg&category=acrcp_v1_48&sig=AOD64_1g_p5rE5-LoXkhVaCbWNrGrfj3Ww&q&sqi=2&nis=4&adurl&ved=2ahUKEwiE7drUr4qPAxX9ALkGHXg7IYEQ0Qx6BAgOEAE" class="cta-button">Quiero saber más</a>
+        </section>
+    </div>
+
+<!-- Vínculos del Liceo -->
+        <section class="partnerships-section">
+            <h2 class="section-title fade-in">Vínculos del Liceo a la Especialidad de Programación</h2>
+            <div style="text-align: center; margin-bottom: 80px;">
+                <p style="font-size: 1.2rem; color: #94a3b8; max-width: 800px; margin: 0 auto; line-height: 1.7;">
+                    Nuestro liceo mantiene <span class="highlight-text">alianzas estratégicas</span> con instituciones líderes en tecnología para ofrecer oportunidades únicas de crecimiento y desarrollo profesional.
+                </p>
+            </div>
+            
+            <div class="partners-container">
+                <div class="partner-card fade-in">
+                    <div class="partner-logo-container">
+                        <div class="inacap-logo">
+                            <div class="inacap-square"></div>
+                            <span class="inacap-text">inacap</span>
+                        </div>
+                    </div>
+                    <h3 class="partner-name"></h3>
+                </div>
+
+                <div class="partner-card fade-in">
+                    <div class="partner-logo-container">
+                        <div class="ibm-logo">
+                            <span class="ibm-text">IBM</span>
+                            <div class="ibm-symbol">®</div>
+                        </div>
+                    </div>
+                    <h3 class="partner-name"></h3>
+                </div>
+
+                <div class="partner-card fade-in">
+                    <div class="partner-logo-container">
+                        <div class="skillnest-logo">
+                            <div class="menu-icon">
+                                <div class="menu-bar"></div>
+                                <div class="menu-bar"></div>
+                                <div class="menu-bar"></div>
+                                <div class="menu-bar"></div>
+                            </div>
+                            <span class="skillnest-text">skillnest</span>
+                        </div>
+                    </div>
+                    <h3 class="partner-name"></h3>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 80px;">
+                <p style="color: #22d3ee; font-size: 1.1rem; font-weight: 600; max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                    Estas alianzas garantizan que nuestros estudiantes tengan acceso a las mejores oportunidades del mercado tecnológico.
+                </p>
+            </div>
+        </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
