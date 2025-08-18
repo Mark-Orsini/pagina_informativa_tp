@@ -1,68 +1,95 @@
- // Efecto de escritura automática
-        const phrases = [
-            "Aprende a crear el futuro con tus propias manos",
-            "Convierte ideas en realidad digital",
-            "Desarrolla soluciones que impacten al mundo"
-        ];
-        
-        let currentPhrase = 0;
-        let currentChar = 0;
-        let isDeleting = false;
-        
-        function typeWriter() {
-            const typedTextElement = document.getElementById('typedText');
-            const currentText = phrases[currentPhrase];
-            
-            if (!isDeleting) {
-                typedTextElement.textContent = currentText.substring(0, currentChar + 1);
-                currentChar++;
-                
-                if (currentChar === currentText.length) {
-                    setTimeout(() => {
-                        isDeleting = true;
-                    }, 2000);
-                }
-            } else {
-                typedTextElement.textContent = currentText.substring(0, currentChar - 1);
-                currentChar--;
-                
-                if (currentChar === 0) {
-                    isDeleting = false;
-                    currentPhrase = (currentPhrase + 1) % phrases.length;
-                }
-            }
-            
-            const typingSpeed = isDeleting ? 50 : 100;
-            setTimeout(typeWriter, typingSpeed);
-        }
-        
-        // Toggle sidebar
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.getElementById('sidebar');
-        
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-            sidebarToggle.classList.toggle('active');
-        });
+// Efecto de escritura automática
+const phrases = [
+    "Aprende a crear el futuro con tus propias manos",
+    "Convierte ideas en realidad digital",
+    "Desarrolla soluciones que impacten al mundo"
+];
 
-        // Cerrar sidebar al hacer click fuera
-        document.addEventListener('click', (e) => {
-            if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
-                sidebar.classList.remove('active');
-                sidebarToggle.classList.remove('active');
-            }
-        });
+let currentPhrase = 0;
+let currentChar = 0;
+let isDeleting = false;
 
-        // Toggle grupos
-        function toggleGroups(courseId) {
-            const container = document.getElementById(courseId);
-            container.classList.toggle('active');
+function typeWriter() {
+    const typedTextElement = document.getElementById('typedText');
+    const currentText = phrases[currentPhrase];
+    
+    if (!isDeleting) {
+        typedTextElement.textContent = currentText.substring(0, currentChar + 1);
+        currentChar++;
+        
+        if (currentChar === currentText.length) {
+            setTimeout(() => {
+                isDeleting = true;
+            }, 2000);
         }
+    } else {
+        typedTextElement.textContent = currentText.substring(0, currentChar - 1);
+        currentChar--;
+        
+        if (currentChar === 0) {
+            isDeleting = false;
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+        }
+    }
+    
+    const typingSpeed = isDeleting ? 50 : 100;
+    setTimeout(typeWriter, typingSpeed);
+}
 
-        // Navegar a grupo
-        function navigateToGroup(groupId) {
-            alert(`Navegando a la página del ${groupId}...\n\nEn una implementación real, esto redirigiría a:\n/grupos/${groupId.toLowerCase()}`);
-        }
+// Toggle sidebar
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebar = document.getElementById('sidebar');
+
+sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    sidebarToggle.classList.toggle('active');
+});
+
+// Cerrar sidebar al hacer click fuera
+document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+        sidebar.classList.remove('active');
+        sidebarToggle.classList.remove('active');
+    }
+});
+
+// Toggle grupos
+function toggleGroups(courseId) {
+    const container = document.getElementById(courseId);
+    container.classList.toggle('active');
+}
+
+function navigateToGroup(groupId) {
+    const groupUrls = {
+        // ▼ Ejemplo: Grupos de 4°E
+        "4E-Grupo1": "https://github.com/liceo-programacion/4E-Grupo1",
+        "4E-Grupo2": "https://github.com/liceo-programacion/4E-Grupo2",
+        "4E-Grupo3": "https://github.com/liceo-programacion/4E-Grupo3",
+        
+        // ▼ Ejemplo: Grupos de 4°C
+        "4C-Grupo1": "https://giarella0701.github.io/GreenMind/",
+        "4C-Grupo2": "https://lisette1701.github.io/",
+        "4C-Grupo3": "https://ostn0928.github.io/RecoTrashTeamThree/",
+        "4C-Grupo4": "https://maxi160108.github.io/SitioWebInformativo/",
+        "4C-Grupo5": "https://markvz3c.github.io/Screen-Balance/",
+        
+        // ▼ Ejemplo: Grupos de 3°C
+        "3C-Grupo1": "https://github.com/3C-Grupo1",
+        "3C-Grupo2": "https://github.com/3C-Grupo2",
+        "3C-Grupo3": "https://github.com/3C-Grupo3",
+        "3C-Grupo4": "https://github.com/3C-Grupo4",
+        "3C-Grupo5": "https://github.com/3C-Grupo5",
+        "3C-Grupo6": "https://github.com/3C-Grupo6"
+    };
+
+    // Verificar si el grupo tiene URL asignada
+    if (groupUrls[groupId]) {
+        // Abre en nueva pestaña (recomendado para enlaces externos)
+        window.open(groupUrls[groupId], '_blank');
+    } else {
+        alert(`⚠️ El grupo "${groupId}" no tiene una URL asignada.\n\nPor favor, actualiza el script.js con la URL correcta.`);
+    }
+}
 
         // Animaciones de scroll
         const observerOptions = {
