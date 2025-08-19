@@ -62,9 +62,9 @@ function toggleGroups(courseId) {
 function navigateToGroup(groupId) {
     const groupUrls = {
         // ▼ Ejemplo: Grupos de 4°E
-        "4E-Grupo1": "https://github.com/liceo-programacion/4E-Grupo1",
+        "4E-Grupo1": "https://ignacio-alfredo.github.io/Pagina_Informativa/",
         "4E-Grupo2": "https://github.com/liceo-programacion/4E-Grupo2",
-        "4E-Grupo3": "https://github.com/liceo-programacion/4E-Grupo3",
+        "4E-Grupo3": "https://asistiot.netlify.app/",
         
         // ▼ Ejemplo: Grupos de 4°C
         "4C-Grupo1": "https://giarella0701.github.io/GreenMind/",
