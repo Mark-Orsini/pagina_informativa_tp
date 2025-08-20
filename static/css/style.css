@@ -1092,3 +1092,187 @@ body {
         font-size: 2rem;
     }
 }
+
+/* Course Filter Styles */
+.course-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0 40px;
+    flex-wrap: wrap;
+}
+
+.course-filter-label {
+    color: #22d3ee;
+    font-weight: 600;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.course-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.course-btn {
+    font-size: 0.95rem;
+}
+
+.course-btn.active,
+.course-btn:hover {
+    background: linear-gradient(135deg, #22d3ee, #10b981);
+    color: #0a1628;
+}
+
+/* Show More Button */
+.show-more-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.show-more-btn {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 211, 238, 0.1));
+    border: 1px solid rgba(34, 211, 238, 0.5);
+    color: #22d3ee;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.show-more-btn:hover {
+    background: linear-gradient(135deg, #22d3ee, #10b981);
+    color: #0a1628;
+    transform: translateY(-2px);
+}
+
+/* Sidebar Credits - Posición fija en el fondo */
+.sidebar-credits {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 120px;
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(71, 85, 105, 0.3);
+    background: linear-gradient(180deg, 
+        rgba(15, 23, 42, 0.95) 0%, 
+        rgba(10, 22, 40, 0.98) 100%
+    );
+    backdrop-filter: blur(15px);
+    z-index: 1100;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+    transform: translateX(400px);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #9dc1fc;
+}
+
+.sidebar.active .sidebar-credits {
+    transform: translateX(0);
+}
+
+.sidebar-credits p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 3px 0;
+    line-height: 1.4;
+}
+
+.sidebar-credits .developer {
+    color: #22d3ee;
+    font-weight: 600;
+}
+
+.sidebar-credits .copyright {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* AGREGA este nuevo CSS para el efecto de degradado y animación scroll: */
+
+/* Degradado para elementos que pasan por debajo de los créditos */
+.sidebar-content::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: 120px;
+    background: linear-gradient(180deg, 
+        transparent 0%, 
+        rgba(15, 23, 42, 0.7) 40%,
+        rgba(15, 23, 42, 0.95) 100%
+    );
+    pointer-events: none;
+    z-index: 1099;
+    transform: translateX(400px);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.active .sidebar-content::after {
+    transform: translateX(0);
+}
+
+/* Animación scroll para los grupos - efecto de escala */
+.group-item {
+    transition: all 0.3s ease, transform 0.2s ease-out;
+    transform-origin: left center;
+}
+
+/* Cuando los elementos están cerca del fondo, se hacen más pequeños */
+.group-item.shrinking {
+    transform: scale(0.85) translateX(8px);
+    opacity: 0.6;
+}
+
+.group-item.very-shrinking {
+    transform: scale(0.7) translateX(12px);
+    opacity: 0.3;
+}
+
+/* MODIFICA el .sidebar-content existente para agregar padding-bottom: */
+.sidebar-content {
+    padding: 80px 30px 140px; /* Aumenté el padding-bottom para el espacio de créditos */
+    position: relative;
+    z-index: 80;
+    height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .sidebar-credits {
+        width: 360px;
+        transform: translateX(360px);
+    }
+    
+    .sidebar-content::after {
+        width: 360px;
+        transform: translateX(360px);
+    }
+    
+    .sidebar.active .sidebar-credits,
+    .sidebar.active .sidebar-content::after {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-credits {
+        width: 320px;
+        transform: translateX(320px);
+    }
+    
+    .sidebar-content::after {
+        width: 320px;
+        transform: translateX(320px);
+    }
+}

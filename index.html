@@ -92,6 +92,14 @@
                     </div>
                 </div>
             </div>
+
+            <!-- REEMPLAZA la sección sidebar-credits existente en tu HTML con este código: -->
+            <div class="sidebar-credits">
+                <p>Página desarrollada por:</p>
+                <p class="developer">Mark Orsini</p>
+                <p>Curso: 4°E - Año 2025</p>
+                <p class="copyright">© 2025 Mark Orsini.</p>
+            </div>
         </div>
     </div>
 
@@ -368,74 +376,176 @@
         <!-- Feria TP y Proyectos -->
         <section class="projects-section" id="projects">
             <h2 class="section-title fade-in">Feria TP - Nuestros Proyectos</h2>
+            
+            <!-- Filtros por categoría -->
             <div class="projects-filter">
                 <button class="filter-btn active" onclick="filterProjects('all')">Todos</button>
                 <button class="filter-btn" onclick="filterProjects('web')">Web</button>
                 <button class="filter-btn" onclick="filterProjects('apps')">Apps</button>
-                <button class="filter-btn" onclick="filterProjects('games')">Juegos</button>
                 <button class="filter-btn" onclick="filterProjects('iot')">IoT</button>
             </div>
             
-            <div class="projects-grid">
-                <div class="project-card fade-in" data-category="web">
-                    <div class="project-image">Portal Estudiantil Interactivo</div>
+            <!-- Filtros por curso -->
+            <div class="course-filter">
+                <div class="course-filter-label">Curso:</div>
+                <div class="course-buttons">
+                    <button class="filter-btn course-btn active" onclick="filterByCourse('all')">Todos</button>
+                    <button class="filter-btn course-btn" onclick="filterByCourse('4E')">4°E</button>
+                    <button class="filter-btn course-btn" onclick="filterByCourse('4C')">4°C</button>
+                    <button class="filter-btn course-btn" onclick="filterByCourse('3C')">3°C</button>
+                </div>
+            </div>
+            
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Proyectos 4°E (5 proyectos) -->
+                <div class="project-card fade-in" data-category="web" data-course="4E" data-preview="true">
+                    <div class="project-image">Portal SecurityMode</div>
                     <div class="project-content">
-                        <div class="project-category">Desarrollo Web</div>
-                        <div class="project-title">Sistema de Gestión Escolar</div>
-                        <div class="project-description">Plataforma web completa para gestionar calificaciones, asistencia y comunicación entre estudiantes, profesores y apoderados.</div>
+                        <div class="project-category">Desarrollo Web - 4°E</div>
+                        <div class="project-title">SecurityMode - Portal de Seguridad</div>
+                        <div class="project-description">Plataforma web integral para la gestión de seguridad informática con monitoreo en tiempo real y alertas inteligentes.</div>
                         <a href="#" class="project-btn">Ver más</a>
                     </div>
                 </div>
                 
-                <div class="project-card fade-in" data-category="apps">
-                    <div class="project-image">App Móvil EcoVida</div>
+                <div class="project-card fade-in" data-category="apps" data-course="4E" data-preview="true">
+                    <div class="project-image">CRONOS DOSIS App</div>
                     <div class="project-content">
-                        <div class="project-category">Aplicación Móvil</div>
-                        <div class="project-title">EcoVida - Sustentabilidad</div>
-                        <div class="project-description">App que gamifica hábitos ecológicos, permitiendo a usuarios registrar y competir por acciones sustentables diarias.</div>
+                        <div class="project-category">Aplicación Móvil - 4°E</div>
+                        <div class="project-title">CRONOS DOSIS - Gestión Médica</div>
+                        <div class="project-description">Aplicación móvil para el control y seguimiento de medicamentos con recordatorios personalizados y historial médico.</div>
                         <a href="#" class="project-btn">Ver más</a>
                     </div>
                 </div>
-                
-                <div class="project-card fade-in" data-category="games">
-                    <div class="project-image">Juego Educativo CodeMaster</div>
+
+                <div class="project-card fade-in" data-category="iot" data-course="4E">
+                    <div class="project-image">AsistIoT Sistema</div>
                     <div class="project-content">
-                        <div class="project-category">Videojuego</div>
-                        <div class="project-title">CodeMaster Adventures</div>
-                        <div class="project-description">Juego educativo que enseña lógica de programación a través de desafíos interactivos y aventuras divertidas.</div>
+                        <div class="project-category">Internet of Things - 4°E</div>
+                        <div class="project-title">AsistIoT - Asistente Inteligente</div>
+                        <div class="project-description">Sistema IoT para automatización del hogar con control de dispositivos y análisis de consumo energético.</div>
                         <a href="#" class="project-btn">Ver más</a>
                     </div>
                 </div>
-                
-                <div class="project-card fade-in" data-category="iot">
-                    <div class="project-image">Sistema IoT SmartGarden</div>
+
+                <div class="project-card fade-in" data-category="web" data-course="4E">
+                    <div class="project-image">EduConnect Platform</div>
                     <div class="project-content">
-                        <div class="project-category">Internet of Things</div>
-                        <div class="project-title">SmartGarden Automatizado</div>
-                        <div class="project-description">Sistema inteligente de riego que utiliza sensores para monitorear y mantener plantas automáticamente.</div>
+                        <div class="project-category">Desarrollo Web - 4°E</div>
+                        <div class="project-title">EduConnect - Plataforma Educativa</div>
+                        <div class="project-description">Portal educativo interactivo con sistema de evaluaciones, recursos multimedia y comunicación profesor-estudiante.</div>
                         <a href="#" class="project-btn">Ver más</a>
                     </div>
                 </div>
-                
-                <div class="project-card fade-in" data-category="web">
-                    <div class="project-image">E-commerce Local</div>
+
+                <div class="project-card fade-in" data-category="apps" data-course="4E">
+                    <div class="project-image">FinanceTracker App</div>
                     <div class="project-content">
-                        <div class="project-category">Desarrollo Web</div>
-                        <div class="project-title">Marketplace Comunitario</div>
-                        <div class="project-description">Plataforma de comercio electrónico para emprendedores locales con sistema de pagos y gestión de inventario.</div>
+                        <div class="project-category">Aplicación Móvil - 4°E</div>
+                        <div class="project-title">FinanceTracker - Control de Gastos</div>
+                        <div class="project-description">App de gestión financiera personal con análisis de gastos, presupuestos y metas de ahorro.</div>
                         <a href="#" class="project-btn">Ver más</a>
                     </div>
                 </div>
-                
-                <div class="project-card fade-in" data-category="apps">
-                    <div class="project-image">App MentalHealth</div>
+
+                <!-- Proyectos 4°C (5 proyectos) -->
+                <div class="project-card fade-in" data-category="web" data-course="4C" data-preview="true">
+                    <div class="project-image">EcoSense Portal</div>
                     <div class="project-content">
-                        <div class="project-category">Aplicación Móvil</div>
-                        <div class="project-title">MindWell - Bienestar Mental</div>
-                        <div class="project-description">Aplicación de apoyo emocional con ejercicios de mindfulness, seguimiento de estado de ánimo y recursos de ayuda.</div>
+                        <div class="project-category">Desarrollo Web - 4°C</div>
+                        <div class="project-title">EcoSense - Monitoreo Ambiental</div>
+                        <div class="project-description">Plataforma web para el monitoreo de calidad del aire y datos ambientales con visualización en tiempo real.</div>
                         <a href="#" class="project-btn">Ver más</a>
                     </div>
                 </div>
+
+                <div class="project-card fade-in" data-category="apps" data-course="4C" data-preview="true">
+                    <div class="project-image">TecnoSalud App</div>
+                    <div class="project-content">
+                        <div class="project-category">Aplicación Móvil - 4°C</div>
+                        <div class="project-title">TecnoSalud - Telemedicina</div>
+                        <div class="project-description">Aplicación de telemedicina con consultas virtuales, seguimiento de signos vitales y recordatorios médicos.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="iot" data-course="4C">
+                    <div class="project-image">RecoTrash Smart</div>
+                    <div class="project-content">
+                        <div class="project-category">Internet of Things - 4°C</div>
+                        <div class="project-title">RecoTrash - Reciclaje Inteligente</div>
+                        <div class="project-description">Sistema IoT para gestión inteligente de residuos con clasificación automática y optimización de rutas de recolección.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="iot" data-course="4C">
+                    <div class="project-image">SmartHome Control</div>
+                    <div class="project-content">
+                        <div class="project-category">Internet of Things - 4°C</div>
+                        <div class="project-title">SmartHome - Domótica Avanzada</div>
+                        <div class="project-description">Sistema domótico completo con control de iluminación, temperatura, seguridad y gestión energética inteligente.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="web" data-course="4C">
+                    <div class="project-image">Screen Balance Web</div>
+                    <div class="project-content">
+                        <div class="project-category">Desarrollo Web - 4°C</div>
+                        <div class="project-title">Screen Balance - Bienestar Digital</div>
+                        <div class="project-description">Plataforma web para el control del tiempo de pantalla y promoción de hábitos digitales saludables en estudiantes.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+
+                <!-- Proyectos 3°C (4 proyectos) -->
+                <div class="project-card fade-in" data-category="web" data-course="3C" data-preview="true">
+                    <div class="project-image">CalmSpace Portal</div>
+                    <div class="project-content">
+                        <div class="project-category">Desarrollo Web - 3°C</div>
+                        <div class="project-title">CalmSpace - Bienestar Mental</div>
+                        <div class="project-description">Portal web de bienestar mental con ejercicios de relajación, meditación guiada y seguimiento del estado emocional.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="apps" data-course="3C" data-preview="true">
+                    <div class="project-image">TecnoScan App</div>
+                    <div class="project-content">
+                        <div class="project-category">Aplicación Móvil - 3°C</div>
+                        <div class="project-title">TecnoScan - Diagnóstico Digital</div>
+                        <div class="project-description">Aplicación móvil con tecnología de escaneo para identificación y diagnóstico de problemas técnicos en dispositivos.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="iot" data-course="3C">
+                    <div class="project-image">EnerTeam Sistema</div>
+                    <div class="project-content">
+                        <div class="project-category">Internet of Things - 3°C</div>
+                        <div class="project-title">EnerTeam - Gestión Energética</div>
+                        <div class="project-description">Sistema IoT para monitoreo y optimización del consumo energético en instituciones educativas con reportes automatizados.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in" data-category="web" data-course="3C">
+                    <div class="project-image">SkyNova Platform</div>
+                    <div class="project-content">
+                        <div class="project-category">Desarrollo Web - 3°C</div>
+                        <div class="project-title">SkyNova - Observatorio Virtual</div>
+                        <div class="project-description">Plataforma web educativa de astronomía con simulaciones interactivas, mapas estelares y seguimiento de eventos astronómicos.</div>
+                        <a href="#" class="project-btn">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón para mostrar más proyectos -->
+            <div class="show-more-container">
+                <button class="show-more-btn" id="showMoreBtn" onclick="toggleAllProjects()">
+                    Ver todos los proyectos (14)
+                </button>
             </div>
         </section>
 
