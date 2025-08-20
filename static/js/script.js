@@ -420,9 +420,24 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Scroll al inicio al cargar la página
+window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+});
+
+// También al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo(0, 0);
+});
+
 // Inicialización principal (MODIFICADA COMO PEDISTE)
 window.addEventListener('load', () => {
     console.log('Página cargada, inicializando...');
+    
+    // Asegurar que esté al principio de la página
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+    }, 100);
     
     // Iniciar efecto de escritura
     setTimeout(typeWriter, 1000);
