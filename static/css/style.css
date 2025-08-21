@@ -1307,6 +1307,7 @@ body {
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    border-radius: 100%;
 }
 
 .logo-container:hover {
@@ -1315,8 +1316,8 @@ body {
 }
 
 .school-logo {
-    width: 35px;
-    height: 35px;
+    width: 60px;
+    height: 60px;
     border-radius: 6px;
     object-fit: contain;
 }
