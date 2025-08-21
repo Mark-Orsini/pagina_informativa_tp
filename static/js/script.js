@@ -4,7 +4,7 @@ const phrases = [
     "Convierte ideas en realidad digital",
     "Desarrolla soluciones que impacten al mundo"
 ];
-
+updateShowMoreButton
 let currentPhrase = 0;
 let currentChar = 0;
 let isDeleting = false;
@@ -279,12 +279,12 @@ function filterByCourse(course) {
     applyFilters();
 }
 
-// Aplicar filtros combinados (MEJORADO)
+// Aplicar filtros combinados (CORREGIDO)
 function applyFilters() {
     const projectCards = document.querySelectorAll('.project-card');
     let visibleCount = 0;
     
-    projectCards.forEach(card => {
+    projectCards.forEach((card, index) => {
         const cardCategory = card.dataset.category;
         const cardCourse = card.dataset.course;
         
@@ -309,17 +309,17 @@ function applyFilters() {
         if (showCard) {
             card.style.display = 'block';
             card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
+            card.style.transform = 'translateX(50px)'; // CAMBIADO: animación desde la derecha
             
             setTimeout(() => {
                 card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 100);
+                card.style.transform = 'translateX(0)';
+            }, index * 100); // Delay escalonado para mejor efecto
             
             visibleCount++;
         } else {
             card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
+            card.style.transform = 'translateX(50px)';
             setTimeout(() => {
                 card.style.display = 'none';
             }, 300);
@@ -327,26 +327,24 @@ function applyFilters() {
     });
     
     // Actualizar el botón "Ver más/menos"
-    updateShowMoreButton(visibleCount);
+    updateShowMoreButton();
 }
 
-// Función para actualizar el texto del botón (NUEVA)
-function updateShowMoreButton(visibleCount) {
+// Función para actualizar el texto del botón (CORREGIDA)
+function updateShowMoreButton() {
     const showMoreBtn = document.getElementById('showMoreBtn');
     if (!showMoreBtn) return;
     
-    const totalProjects = document.querySelectorAll('.project-card').length;
-    const previewProjects = document.querySelectorAll('.project-card[data-preview]').length;
+    const totalProjects = document.querySelectorAll('.project-card').length();
     
     if (showingAllProjects) {
         showMoreBtn.textContent = 'Ver menos proyectos';
     } else {
-        const hiddenProjects = totalProjects - previewProjects;
-        showMoreBtn.textContent = `Ver todos los proyectos (${totalProjects})`;
+        showMoreBtn.textContent = `Ver todos los proyectos (${totalProjects})`
     }
 }
 
-// Toggle mostrar todos los proyectos (COMPLETAMENTE REESCRITO)
+// Toggle mostrar todos los proyectos (CORREGIDO)
 function toggleAllProjects() {
     const showMoreBtn = document.getElementById('showMoreBtn');
     if (!showMoreBtn) return;
@@ -355,6 +353,14 @@ function toggleAllProjects() {
     
     // Aplicar filtros con la nueva configuración
     applyFilters();
+    
+    // Actualizar texto del botón
+    const totalProjects = document.querySelectorAll('.project-card').length;
+    if (showingAllProjects) {
+        showMoreBtn.textContent = 'Ver menos proyectos';
+    } else {
+        showMoreBtn.textContent = `Ver todos los proyectos (${totalProjects})`;
+    }
     
     console.log('Toggle projects:', showingAllProjects ? 'Mostrando todos' : 'Mostrando preview');
 }
@@ -542,4 +548,112 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = 'rotateY(0deg) translateY(0px) scale(1)';
         });
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- VARIABLES GLOBALES PARA CONTROLAR EL ESTADO ---
+    let showingAllProjects = false;      // ¿Estamos mostrando todos los proyectos o solo la vista previa?
+    let currentCategoryFilter = 'all'; // Filtro de categoría actual
+    let currentCourseFilter = 'all';   // Filtro de curso actual
+
+    // --- ELEMENTOS DEL DOM ---
+    const projectCards = document.querySelectorAll('.project-card');
+    const totalProjects = projectCards.length;
+    const categoryBtns = document.querySelectorAll('.projects-filter .filter-btn');
+    const courseBtns = document.querySelectorAll('.course-filter .course-btn');
+    const showMoreBtn = document.getElementById('showMoreBtn');
+
+    // --- FUNCIONES PRINCIPALES ---
+
+    /**
+     * Aplica los filtros actuales (categoría y curso) a todos los proyectos.
+     * Esta es la función central que decide qué proyecto se muestra y cuál se oculta.
+     */
+    function applyFilters() {
+        projectCards.forEach(card => {
+            const cardCategory = card.dataset.category;
+            const cardCourse = card.dataset.course;
+            const isPreview = card.hasAttribute('data-preview');
+
+            // Condiciones para mostrar una tarjeta
+            const categoryMatch = currentCategoryFilter === 'all' || cardCategory === currentCategoryFilter;
+            const courseMatch = currentCourseFilter === 'all' || cardCourse === currentCourseFilter;
+            
+            // Decidir si la tarjeta debe mostrarse
+            let showCard = false;
+            if (categoryMatch && courseMatch) {
+                if (showingAllProjects) {
+                    showCard = true; // Si se muestran todos, solo importa que coincida el filtro
+                } else {
+                    showCard = isPreview; // Si no, debe coincidir Y ser de vista previa
+                }
+            }
+
+            // Aplicar estilos para mostrar u ocultar la tarjeta
+            if (showCard) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        updateShowMoreButton(); // Actualizar el texto del botón después de filtrar
+    }
+
+    /**
+     * Actualiza el texto del botón "Ver más/menos"
+     */
+    function updateShowMoreButton() {
+        if (!showMoreBtn) return;
+        
+        if (showingAllProjects) {
+            showMoreBtn.textContent = 'Ver menos proyectos';
+        } else {
+            showMoreBtn.textContent = `Ver todos los proyectos (${totalProjects})`;
+        }
+    }
+
+    // --- CONFIGURACIÓN DE EVENT LISTENERS ---
+
+    // Añadir listeners a los botones de categoría
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Actualizar el filtro actual
+            currentCategoryFilter = btn.dataset.category;
+
+            // Actualizar el estilo del botón activo
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Aplicar los filtros
+            applyFilters();
+        });
+    });
+
+    // Añadir listeners a los botones de curso
+    courseBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Actualizar el filtro actual
+            currentCourseFilter = btn.dataset.course;
+
+            // Actualizar el estilo del botón activo
+            courseBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Aplicar los filtros
+            applyFilters();
+        });
+    });
+
+    // Añadir listener al botón "Ver todos los proyectos"
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+            showingAllProjects = !showingAllProjects; // Invierte el estado (true a false, false a true)
+            applyFilters(); // Vuelve a aplicar los filtros con el nuevo estado
+        });
+    }
+
+    // --- INICIALIZACIÓN ---
+    // Al cargar la página, aplicamos los filtros iniciales para mostrar solo la vista previa.
+    applyFilters();
 });

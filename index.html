@@ -9,6 +9,12 @@
     <link rel="icon" type="image/x-icon" href="./static/img/n-vvh.png">
 </head>
 <body>
+
+    <!-- Logo del Liceo -->
+    <div class="logo-container">
+        <img src="./static/img/n-vvh.png" alt="Logo Liceo VVH" class="school-logo">
+    </div>
+
     <!-- Toggle del sidebar -->
     <button class="sidebar-toggle" id="sidebarToggle">
         <span class="hamburger"></span>
@@ -376,25 +382,23 @@
         <!-- Feria TP y Proyectos -->
         <section class="projects-section" id="projects">
             <h2 class="section-title fade-in">Feria TP - Nuestros Proyectos</h2>
-            
-            <!-- Filtros por categoría -->
-            <div class="projects-filter">
-                <button class="filter-btn active" onclick="filterProjects('all')">Todos</button>
-                <button class="filter-btn" onclick="filterProjects('web')">Web</button>
-                <button class="filter-btn" onclick="filterProjects('apps')">Apps</button>
-                <button class="filter-btn" onclick="filterProjects('iot')">IoT</button>
-            </div>
-            
-            <!-- Filtros por curso -->
-            <div class="course-filter">
-                <div class="course-filter-label">Curso:</div>
-                <div class="course-buttons">
-                    <button class="filter-btn course-btn active" onclick="filterByCourse('all')">Todos</button>
-                    <button class="filter-btn course-btn" onclick="filterByCourse('4E')">4°E</button>
-                    <button class="filter-btn course-btn" onclick="filterByCourse('4C')">4°C</button>
-                    <button class="filter-btn course-btn" onclick="filterByCourse('3C')">3°C</button>
+                
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-category="all">Todos</button>
+                    <button class="filter-btn" data-category="web">Web</button>
+                    <button class="filter-btn" data-category="apps">Apps</button>
+                    <button class="filter-btn" data-category="iot">IoT</button>
                 </div>
-            </div>
+                
+                <div class="course-filter">
+                    <div class="course-filter-label">Curso:</div>
+                    <div class="course-buttons">
+                        <button class="filter-btn course-btn active" data-course="all">Todos</button>
+                        <button class="filter-btn course-btn" data-course="4E">4°E</button>
+                        <button class="filter-btn course-btn" data-course="4C">4°C</button>
+                        <button class="filter-btn course-btn" data-course="3C">3°C</button>
+                    </div>
+                </div>
             
             <div class="projects-grid" id="projectsGrid">
                 <!-- Proyectos 4°E (5 proyectos) -->
@@ -543,7 +547,7 @@
 
             <!-- Botón para mostrar más proyectos -->
             <div class="show-more-container">
-                <button class="show-more-btn" id="showMoreBtn" onclick="toggleAllProjects()">
+                <button class="show-more-btn" id="showMoreBtn">
                     Ver todos los proyectos (14)
                 </button>
             </div>
